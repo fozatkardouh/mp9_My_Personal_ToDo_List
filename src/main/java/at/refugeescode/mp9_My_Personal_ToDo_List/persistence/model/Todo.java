@@ -15,11 +15,6 @@ public class Todo {
     private String task;
     private boolean done;
 
-    public Todo(String task, boolean done) {
-        this.task = task;
-        this.done = done;
-    }
-
     @Override
     public String toString() {
         return "Todo{" +
