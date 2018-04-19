@@ -31,9 +31,16 @@ public class TodoEndpoint {
         return todoRepository.findById(id).orElse(null);
     }
 
-    @PostMapping("{id}/done")
+    @PostMapping("/{id}/done")
     public Todo saveDone(@PathVariable String id) {
         return todoCompleter.switchIsDone(id);
+    }
+
+    @DeleteMapping("/{id}")
+    public Todo deleteOne(@PathVariable String id) {
+        Todo todo = todoRepository.findById(id).orElse(null);
+        todoRepository.deleteById(id);
+        return todo;
     }
 
 }
